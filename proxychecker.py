@@ -80,7 +80,8 @@ def check_proxy(proxy, p=False):
       proxy: A proxy to check.
       p: A boolean variable that indicates whether to print or return the value.
       
-    Returns: The status of the proxy. If there was a failure, the reason is given back to the caller.
+    Returns: The status of the proxy. If there was a failure,
+            the reason is given back to the caller as an exception string.
     """
   
     if isinstance(proxy, dict):
@@ -93,7 +94,7 @@ def check_proxy(proxy, p=False):
       if p:
         print '{} is \033[91m offline \033[0m'.format(proxy)
       else:
-        return ('offline', e)
+        return ('offline', str(e))
     else:
       if p:
         print '{} is \033[91m online \033[0m'.format(proxy)
